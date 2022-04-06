@@ -64,6 +64,6 @@ array_push($books, $name);
 $xlsx = SimpleXLSXGen::fromArray($books);
 
 $xlsx->saveAs($newFile);
-echo("<a class='download' href=http://tolist.local:880/core/".$newFile.">Скачать</a>");
+echo("<a class='download' href=".DOMAIN."/core/".$newFile.">Скачать</a>");
 
 

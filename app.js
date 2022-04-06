@@ -55,3 +55,7 @@ $("#form-preset").on("submit", function(e){
 		}
 	});
 });
+
+$('#messageGet').on('click', function(){
+  setInterval(() => $('#messageGet').css('display', 'none'), 1000)
+})

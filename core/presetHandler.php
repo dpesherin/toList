@@ -1,7 +1,11 @@
 <?
+
+use Shuchkin\SimpleXLSXGen;
+
 require('./classes/Request.php');
 require('./config.php');
 require('./general.php');
+require('./simplexlsxgen/SimpleXLSXGen.php');
 
 $listId = $_POST['list'];
 
@@ -47,5 +51,19 @@ fwrite($file, $content);
 fclose($file);
 
 $json = getJSON($fileName);
-var_dump($json);
+
+$newFile = 'uploads/preset_type_'.$listId.'.xlsx';
+
+if(file_exists($newFile)){
+    unlink($newFile);
+}
+
+$books = [];
+array_push($books, $name);
+
+$xlsx = SimpleXLSXGen::fromArray($books);
+
+$xlsx->saveAs($newFile);
+echo("<a class='download' href=http://tolist.local:880/core/".$newFile.">Скачать</a>");
+
 

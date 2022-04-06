@@ -3,6 +3,7 @@ require_once("./simplexlsx/simplexlsx.class.php");
 require('./classes/Request.php');
 require('./config.php');
 
+$listId = $_POST['list'];
 $file =$_FILES['file']['tmp_name'];
 $path = './uploads/'.$_FILES['file']['name'];
 
@@ -50,7 +51,7 @@ foreach($data as $el){
 	$hash = md5($el['FIELD_NAME'].$el['EDIT_FORM_LABEL']);
 	$arFields = [
 		'IBLOCK_TYPE_ID'=>'lists',
-		'IBLOCK_ID'=> LIST_ID,
+		'IBLOCK_ID'=> $listId,
 		'ELEMENT_CODE'=> $hash,
 		'FIELDS'=> [
 			'NAME'=> $el['ENTITY_ID'],

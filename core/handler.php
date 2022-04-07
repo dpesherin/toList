@@ -70,7 +70,6 @@ foreach($data as $el){
 		'FIELDS'=> $fields
 	];
 
-	var_dump($arFields);
 	$res = $rq->make('lists.element.add', $arFields);
 }
 

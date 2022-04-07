@@ -6,8 +6,29 @@
  }
 
  function getBySchema($schema, $data){
-   var_dump($schema);
-   var_dump($data);
+
+   $headers = array_keys($schema);
+   $count = count($headers);
+
+   $row = [];
+   $fieldId = [];
+
+  for($i = 0; $i<$count; $i++){  
+    array_push($row, $data[$headers[$i]]);
+    array_push($fieldId, $schema[$headers[$i]]['FIELD_ID']);
+    
+  }
+  $row = array_combine($fieldId, $row);
+
+  
+  return($row);
  }
 
- 
+ function getHash(array $data){
+   $row = '';
+   foreach($data as $el){
+    $row = (string)$row.(string)$el;
+   }
+
+   return(md5($row));
+ }

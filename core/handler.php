@@ -51,36 +51,26 @@ foreach($sheet as $el){
 
 $schema = getJSON($schemaPath);
 
-getBySchema($schema, $data);
+$rq = new Request;
+
+foreach($data as $el){
+	$fields = getBySchema($schema, $el);
+	$hash = getHash($fields);
+	$arFields = [
+		'IBLOCK_TYPE_ID'=>'lists',
+		'IBLOCK_ID'=> $listId,
+		'ELEMENT_CODE'=> $hash,
+		'FIELDS'=> $fields
+	];
 
 
+	$res = $rq->make('lists.element.add', $arFields);
+}
 
 
+unlink($path);
 
-// $rq = new Request;
-
-// foreach($data as $el){
-// 	$hash = md5($el['FIELD_NAME'].$el['EDIT_FORM_LABEL']);
-// 	$arFields = [
-// 		'IBLOCK_TYPE_ID'=>'lists',
-// 		'IBLOCK_ID'=> $listId,
-// 		'ELEMENT_CODE'=> $hash,
-// 		'FIELDS'=> [
-// 			'NAME'=> $el['ENTITY_ID'],
-// 			'PROPERTY_72'=> $el['FIELD_NAME'],
-// 			'PROPERTY_74'=> $el['USER_TYPE_ID'],
-// 			'PROPERTY_73' => $el['EDIT_FORM_LABEL']
-// 		]
-// 	];
-
-
-// 	$res = $rq->make('lists.element.add', $arFields);
-// }
-
-
-// unlink($path);
-
-// echo("Success ");
+echo("Success");
 
 
 

@@ -35,7 +35,7 @@ $("#form").on("submit", function(e){
       $('#message').html(data)
       $("#bnt-submit").prop("disabled",false)
       $("#bnt-submit").css('cursor', 'pointer')
-      setInterval(() => $('#message').css('display', 'none'), 3000)
+      // setInterval(() => $('#message').css('display', 'none'), 6000)
     }
 	});
 });
@@ -51,7 +51,6 @@ $("#form-preset").on("submit", function(e){
 		success: function(data){
       $('#messageGet').css('display', 'flex')
 			$('#messageGet').html(data)
-      // setInterval(() => $('#messageGet').css('display', 'none'), 3000)
 		}
 	});
 });

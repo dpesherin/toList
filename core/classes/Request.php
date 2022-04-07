@@ -5,6 +5,7 @@ class Request {
     protected $err;
 
     public function make(string $method, array $data){
+        
         $queryData = json_encode($data);
         $curl = curl_init();
         curl_setopt_array($curl,[
@@ -19,7 +20,6 @@ class Request {
         ]);
 
         $result = curl_exec($curl);
-
         return $result;
         
     }

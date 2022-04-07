@@ -2,6 +2,7 @@
 require('./core/config.php');
 require('./core/classes/Request.php');
 
+
 $rq = new Request;
 
 $arFields = [
@@ -9,7 +10,6 @@ $arFields = [
 ];
 
 $data = $rq->make('lists.get', $arFields);
-
 $res = json_decode($data)->result;
 
 $opt = [];
@@ -21,7 +21,10 @@ foreach($res as $el){
     $row = array_combine(["ID", "NAME"], $row);
     array_push($opt, $row);
     $row = [];
-}
+} 
+    
+
+
 
 
 ?>

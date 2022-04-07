@@ -36,7 +36,7 @@ foreach($res as $el){
     $row = [];
 }
 
-$fileName = './uploads/list_structure/datainfo_type_'.$listId.'.json';
+$fileName = './uploads/list_structure/schema_list_'.$listId.'.json';
 
 if(file_exists($fileName)){
     unlink($fileName);
@@ -52,7 +52,7 @@ fclose($file);
 
 $json = getJSON($fileName);
 
-$newFile = 'uploads/preset_type_'.$listId.'.xlsx';
+$newFile = 'uploads/preset_list_'.$listId.'.xlsx';
 
 if(file_exists($newFile)){
     unlink($newFile);

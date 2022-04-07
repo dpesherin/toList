@@ -17,7 +17,7 @@ $("#form").on("submit", function(e){
   e.preventDefault()
   var $that = $(this)
   formData = new FormData($that.get(0));
-
+  console.log(formData)
 	$.ajax({
     url: 'core/handler.php',
     processData: false,

@@ -6,7 +6,6 @@
  }
 
  function getBySchema($schema, $data){
-
    $headers = array_keys($schema);
    $count = count($headers);
 
@@ -14,7 +13,7 @@
    $fieldId = [];
 
   for($i = 0; $i<$count; $i++){  
-    array_push($row, $data[$headers[$i]]);
+    array_push($row, (string)$data[$headers[$i]]);
     array_push($fieldId, $schema[$headers[$i]]['FIELD_ID']);
     
   }

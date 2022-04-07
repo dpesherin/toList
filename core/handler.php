@@ -5,9 +5,14 @@ require('./config.php');
 require('./general.php');
 
 $listId = $_POST['list'];
+if(!$listId){
+	die('Необходимо выбрать список');
+}
 $file =$_FILES['file']['tmp_name'];
 $path = './uploads/'.$_FILES['file']['name'];
+
 $schemaPath = './uploads/list_structure/schema_list_'.$listId.'.json';
+
 
 move_uploaded_file($file, $path);
 
@@ -49,6 +54,8 @@ foreach($sheet as $el){
 	
 }
 
+
+
 $schema = getJSON($schemaPath);
 
 $rq = new Request;
@@ -63,7 +70,7 @@ foreach($data as $el){
 		'FIELDS'=> $fields
 	];
 
-
+	var_dump($arFields);
 	$res = $rq->make('lists.element.add', $arFields);
 }
 

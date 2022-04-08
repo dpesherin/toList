@@ -1,8 +1,8 @@
 <? 
-require_once("./simplexlsx/simplexlsx.class.php");
-require('./classes/Request.php');
-require('./config.php');
-require('./general.php');
+require_once($_SERVER['DOCUMENT_ROOT']."/core/simplexlsx/simplexlsx.class.php");
+require($_SERVER['DOCUMENT_ROOT'].'/core/classes/Request.php');
+require($_SERVER['DOCUMENT_ROOT'].'/core/config.php');
+require($_SERVER['DOCUMENT_ROOT'].'/core/general.php');
 
 $listId = $_POST['list'];
 if(!$listId){

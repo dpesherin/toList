@@ -2,10 +2,10 @@
 
 use Shuchkin\SimpleXLSXGen;
 
-require('./classes/Request.php');
-require('./config.php');
-require('./general.php');
-require('./simplexlsxgen/SimpleXLSXGen.php');
+require($_SERVER['DOCUMENT_ROOT'].'/core/classes/Request.php');
+require($_SERVER['DOCUMENT_ROOT'].'/core/config.php');
+require($_SERVER['DOCUMENT_ROOT'].'/core/general.php');
+require($_SERVER['DOCUMENT_ROOT'].'/core/simplexlsxgen/SimpleXLSXGen.php');
 
 $listId = $_POST['list'];
 
@@ -36,7 +36,7 @@ foreach($res as $el){
     $row = [];
 }
 
-$fileName = './uploads/list_structure/schema_list_'.$listId.'.json';
+$fileName = $_SERVER['DOCUMENT_ROOT'].'/core/uploads/list_structure/schema_list_'.$listId.'.json';
 
 if(file_exists($fileName)){
     unlink($fileName);

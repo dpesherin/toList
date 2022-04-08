@@ -35,7 +35,7 @@ $("#form").on("submit", function(e){
       $('#message').html(data)
       $("#bnt-submit").prop("disabled",false)
       $("#bnt-submit").css('cursor', 'pointer')
-      // setInterval(() => $('#message').css('display', 'none'), 6000)
+      setInterval(() => $('#message').css('display', 'none'), 6000)
     }
 	});
 });

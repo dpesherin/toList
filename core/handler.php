@@ -42,9 +42,7 @@ if($sheet==[]){
 }
 foreach($sheet as $el){
 	for($i=0; $i<count($el); $i++){
-		if($el[$i]!=''){
-			array_push($row, $el[$i]);
-		}
+		array_push($row, $el[$i]);
 	}
 	if($row!=[]){
 		$row = array_combine($HeaderCols, $row);
